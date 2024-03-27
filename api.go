@@ -59,6 +59,7 @@ type ConnectDatagram struct {
 type SubscribeDatagram struct {
 	BaseDatagram
 	Content  string  `json:"content"`
+	Topic    string  `json:"topic"`
 	Interval float32 `json:"interval"`
 	Road     string  `json:"road"`
 }
@@ -168,6 +169,11 @@ type UpdateVehiclesDatagram struct {
 	Vehicles []UpdateVehiclesVehicle `json:"vehicles"`
 }
 
+type UpdatePositionVehicleDatagram struct {
+	BaseDatagram
+	Vehicle UpdateVehicleVehicle `json:"vehicle"`
+}
+
 type ConnectVehicleDatagram struct {
 	BaseDatagram
 	Vin string `json:"vin"`
@@ -232,14 +238,14 @@ type GenericNotificationContent struct {
 }
 
 type HeadCollisionNotificationContent struct {
-	TargetVehicleId      int     `json:"target_vehicle_id"`
+	TargetVehicleVin     string  `json:"target_vehicle_vin"`
 	TimeToCollision      float32 `json:"time_to_collision"`
 	MaxSpeedExceededBy   float32 `json:"max_speed_exceeded_by"`
 	BreakingDistanceDiff float32 `json:"breaking_distance_diff"`
 }
 
 type ChainCollisionNotificationContent struct {
-	TargetVehicleId     int     `json:"target_vehicle_id"`
+	TargetVehicleVin    string  `json:"target_vehicle_vin"`
 	CurrentDistance     float32 `json:"current_distance"`
 	RecommendedDistance float32 `json:"recommended_distance"`
 }
