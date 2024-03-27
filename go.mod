@@ -1,3 +1,3 @@
-module github.com/orgs/ReCoFIIT/integration-api
+module github.com/ReCoFIIT/integration-api
 
 go 1.22.0
