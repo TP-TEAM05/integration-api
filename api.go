@@ -94,7 +94,7 @@ type AreaDatagram struct {
 
 type NotifyDatagram struct {
 	BaseDatagram
-	VehicleId   int    `json:"vehicle_id"`
+	VehicleVin  string `json:"vehicle_vin"`
 	Level       string `json:"level"`
 	ContentType string `json:"content_type"`
 }
