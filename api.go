@@ -167,12 +167,24 @@ type CrossroadNotifyVehicleDatagram struct {
 }
 type UpdateVehiclesDatagram struct {
 	BaseDatagram
-	Vehicles []UpdateVehiclesVehicle `json:"vehicles"`
+	Vehicles []UpdateVehicleVehicle `json:"vehicles"`
 }
 
 type UpdatePositionVehicleDatagram struct {
 	BaseDatagram
 	Vehicle UpdateVehicleVehicle `json:"vehicle"`
+}
+
+type NetworkStatisticsDatagram struct {
+	BaseDatagram
+	NetworkStatistics []NetworkStatistics `json:"networkStatistics"`
+}
+
+type NetworkStatistics struct {
+	PacketsReceived int64 `json:"packetsReceived"`
+	ReceiveErrors   int64 `json:"receiveErrors"`
+	AverageLatency  int64 `json:"averageLatency"`
+	Jitter          int64 `json:"jitter"`
 }
 
 type ConnectVehicleDatagram struct {
@@ -230,6 +242,16 @@ type UpdateVehicleVehicle struct {
 type UpdateNotificationsDatagram struct {
 	BaseDatagram
 	Notifications []UpdateNotificationsNotification `json:"notifications"`
+}
+
+type UpdateVehicleDecisionDatagram struct {
+	BaseDatagram
+	VehicleDecision UpdateVehicleDecision `json:"updateVehicleDecision"`
+}
+
+type UpdateVehicleDecision struct {
+	Timestamp string `json:"timestamp"`
+	Vin       string `json:"vin"`
 }
 
 type UpdateNotificationsNotification struct {
