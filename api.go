@@ -225,6 +225,7 @@ type UpdateVehiclesVehicle struct {
 }
 
 type UpdateVehicleVehicle struct {
+	Id              int     `json:"id"`
 	Vin             string  `json:"vin"`
 	Longitude       float32 `json:"longitude"`
 	Latitude        float32 `json:"latitude"`
