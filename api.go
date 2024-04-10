@@ -253,6 +253,7 @@ type UpdateVehicleDecisionDatagram struct {
 type UpdateVehicleDecision struct {
 	Timestamp string `json:"timestamp"`
 	Vin       string `json:"vin"`
+	Message   string `json:"message"`
 }
 
 type UpdateNotificationsNotification struct {
