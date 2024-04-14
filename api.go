@@ -225,19 +225,20 @@ type UpdateVehiclesVehicle struct {
 }
 
 type UpdateVehicleVehicle struct {
-	Id              int     `json:"id"`
-	Vin             string  `json:"vin"`
-	Longitude       float32 `json:"longitude"`
-	Latitude        float32 `json:"latitude"`
-	GpsDirection    float32 `json:"gps_direction"`
-	FrontUltrasonic float32 `json:"front_ultrasonic"`
-	FrontLidar      float32 `json:"front_lidar"`
-	RearUltrasonic  float32 `json:"rear_ultrasonic"`
-	Speed           float32 `json:"speed"`
-	SpeedFrontLeft  float32 `json:"speed_front_left"`
-	SpeedFrontRight float32 `json:"speed_front_right"`
-	SpeedRearLeft   float32 `json:"speed_rear_left"`
-	SpeedRearRight  float32 `json:"speed_rear_right"`
+	Id                 int     `json:"id"`
+	Vin                string  `json:"vin"`
+	IsControlledByUser bool    `json:"is_controlled_by_user"`
+	Longitude          float32 `json:"longitude"`
+	Latitude           float32 `json:"latitude"`
+	GpsDirection       float32 `json:"gps_direction"`
+	FrontUltrasonic    float32 `json:"front_ultrasonic"`
+	FrontLidar         float32 `json:"front_lidar"`
+	RearUltrasonic     float32 `json:"rear_ultrasonic"`
+	Speed              float32 `json:"speed"`
+	SpeedFrontLeft     float32 `json:"speed_front_left"`
+	SpeedFrontRight    float32 `json:"speed_front_right"`
+	SpeedRearLeft      float32 `json:"speed_rear_left"`
+	SpeedRearRight     float32 `json:"speed_rear_right"`
 }
 
 type UpdateNotificationsDatagram struct {
