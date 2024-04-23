@@ -15,11 +15,6 @@ type IDatagram interface {
 	SetTimestamp(timestamp string)
 }
 
-type INotifyDatagram interface {
-	GetNotifyDatagram() *NotifyDatagram
-	GetContent() interface{}
-}
-
 // BaseDatagram Datagram
 type BaseDatagram struct {
 	Index     int    `json:"index"`
@@ -92,79 +87,6 @@ type AreaDatagram struct {
 	BottomRight PositionJSON `json:"bottom_right"`
 }
 
-type NotifyDatagram struct {
-	BaseDatagram
-	VehicleVin  string `json:"vehicle_vin"`
-	VehicleId   int    `json:"vehicle_id"`
-	Level       string `json:"level"`
-	ContentType string `json:"content_type"`
-}
-
-func (notifyDatagram *NotifyDatagram) GetNotifyDatagram() *NotifyDatagram {
-	return notifyDatagram
-}
-
-type GenericNotifyDatagram struct {
-	NotifyDatagram
-	Content GenericNotificationContent `json:"content"`
-}
-
-func (notifyDatagram *GenericNotifyDatagram) GetContent() interface{} {
-	return notifyDatagram.Content
-}
-
-type HeadCollisionNotifyDatagram struct {
-	NotifyDatagram
-	Content HeadCollisionNotificationContent `json:"content"`
-}
-
-func (notifyDatagram *HeadCollisionNotifyDatagram) GetContent() interface{} {
-	return notifyDatagram.Content
-}
-
-type ChainCollisionNotifyDatagram struct {
-	NotifyDatagram
-	Content ChainCollisionNotificationContent `json:"content"`
-}
-
-func (notifyDatagram *ChainCollisionNotifyDatagram) GetContent() interface{} {
-	return notifyDatagram.Content
-}
-
-type CrossroadNotifyDatagram struct {
-	NotifyDatagram
-	Content CrossroadNotificationContent `json:"content"`
-}
-
-func (notifyDatagram *CrossroadNotifyDatagram) GetContent() interface{} {
-	return notifyDatagram.Content
-}
-
-type NotifyVehicleDatagram struct {
-	BaseDatagram
-	Level       string `json:"level"`
-	ContentType string `json:"content_type"`
-}
-
-type GenericNotifyVehicleDatagram struct {
-	NotifyVehicleDatagram
-	Content GenericNotificationContent `json:"content"`
-}
-
-type HeadCollisionNotifyVehicleDatagram struct {
-	NotifyVehicleDatagram
-	Content HeadCollisionNotificationContent `json:"content"`
-}
-
-type ChainCollisionNotifyVehicleDatagram struct {
-	NotifyVehicleDatagram
-	Content ChainCollisionNotificationContent `json:"content"`
-}
-
-type CrossroadNotifyVehicleDatagram struct {
-	NotifyVehicleDatagram
-	Content CrossroadNotificationContent `json:"content"`
-}
 type UpdateVehiclesDatagram struct {
 	BaseDatagram
 	Vehicles []UpdateVehicleVehicle `json:"vehicles"`
@@ -241,10 +163,6 @@ type UpdateVehicleVehicle struct {
 	SpeedRearRight     float32 `json:"speed_rear_right"`
 }
 
-type UpdateNotificationsDatagram struct {
-	BaseDatagram
-	Notifications []UpdateNotificationsNotification `json:"notifications"`
-}
 
 type UpdateVehicleDecisionDatagram struct {
 	BaseDatagram
@@ -256,41 +174,8 @@ type UpdateVehicleDecision struct {
 	Message   string `json:"message"`
 }
 
-type UpdateNotificationsNotification struct {
-	Timestamp   string      `json:"timestamp"`
-	VehicleId   int         `json:"vehicle_id"`
-	VehicleVin  string      `json:"vehicle_vin"`
-	Level       string      `json:"level"`
-	ContentType string      `json:"content_type"`
-	Content     interface{} `json:"content"`
-}
-
 type PositionJSON struct {
 	Lat float32 `json:"lat"`
 	Lon float32 `json:"lon"`
 }
 
-type GenericNotificationContent struct {
-	Text string `json:"text"`
-}
-
-type HeadCollisionNotificationContent struct {
-	TargetVehicleVin     string  `json:"target_vehicle_vin"`
-	TargetVehicleId      int     `json:"target_vehicle_id"`
-	TimeToCollision      float32 `json:"time_to_collision"`
-	MaxSpeedExceededBy   float32 `json:"max_speed_exceeded_by"`
-	BreakingDistanceDiff float32 `json:"breaking_distance_diff"`
-}
-
-type ChainCollisionNotificationContent struct {
-	TargetVehicleVin    string  `json:"target_vehicle_vin"`
-	TargetVehicleId     int     `json:"target_vehicle_id"`
-	CurrentDistance     float32 `json:"current_distance"`
-	RecommendedDistance float32 `json:"recommended_distance"`
-}
-
-type CrossroadNotificationContent struct {
-	Text       string `json:"text"`
-	Order      int    `json:"order"`
-	RightOfWay bool   `json:"right_of_way"`
-}
