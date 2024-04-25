@@ -227,6 +227,7 @@ type UpdateVehiclesVehicle struct {
 type UpdateVehicleVehicle struct {
 	Id                    int     `json:"id"`
 	Vin                   string  `json:"vin"`
+	IsControlledByUser    bool    `json:"is_controlled_by_user"`
 	Longitude             float32 `json:"longitude"`
 	Latitude              float32 `json:"latitude"`
 	GpsDirection          float32 `json:"gps_direction"`
@@ -253,8 +254,8 @@ type UpdateVehicleDecisionDatagram struct {
 }
 
 type UpdateVehicleDecision struct {
-	Timestamp string `json:"timestamp"`
-	Vin       string `json:"vin"`
+	Vin     string `json:"vin"`
+	Message string `json:"message"`
 }
 
 type UpdateNotificationsNotification struct {
