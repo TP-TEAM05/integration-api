@@ -233,7 +233,7 @@ type UpdateVehicleVehicle struct {
 	IsControlledByUser    bool    `json:"is_controlled_by_user"`
 	Longitude             float32 `json:"longitude"`
 	Latitude              float32 `json:"latitude"`
-	GpsDirection          int     `json:"gps_direction"`
+	GpsDirection          float32 `json:"gps_direction"`
 	GpsSatelliteCount     float32 `json:"gps_satellite_count"`
 	GpsHorizontalAccuracy float32 `json:"gps_horizontal_accuracy"`
 	FrontUltrasonic       float32 `json:"front_ultrasonic"`
